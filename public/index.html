@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Cartes de Visite - RÉSEAU EGFF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="app-container">
+        <div class="form-container">
+            <h1>Générateur de Cartes de Visite - RÉSEAU EGFF</h1>
+            
+            <form id="businessCardForm">
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input type="text" id="firstName" placeholder="Ex: Kylian" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <input type="text" id="lastName" placeholder="Ex: BAILLY" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="jobTitle">Fonction</label>
+                    <select id="jobTitle" required>
+                        <option value="">Sélectionnez une fonction</option>
+                        <option value="GÉRANT">GÉRANT</option>
+                        <option value="STAGIAIRE">STAGIAIRE</option>
+                        <option value="EMPLOYÉ(E)">EMPLOYÉ(E)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Ex: k.bailly@reseauegff.fr" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" placeholder="Ex: +33 6 00 00 00 00" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="website">Site Web</label>
+                    <input type="url" id="website" placeholder="Ex: www.techinfrance.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Adresse</label>
+                    <input type="text" id="location" placeholder="Ex: Paris, France">
+                </div>
+                
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn (optionnel)</label>
+                    <input type="url" id="linkedin" placeholder="Ex: https://linkedin.com/in/votrenom">
+                </div>
+                
+                <div class="form-group">
+                    <label for="facebook">Facebook (optionnel)</label>
+                    <input type="url" id="facebook" placeholder="Ex: https://facebook.com/votrenom">
+                </div>
+                
+                <div class="form-group">
+                    <label for="twitter">Twitter/X (optionnel)</label>
+                    <input type="url" id="twitter" placeholder="Ex: https://twitter.com/votrenom">
+                </div>
+                
+                <div class="form-group">
+                    <label for="instagram">Instagram (optionnel)</label>
+                    <input type="url" id="instagram" placeholder="Ex: https://instagram.com/votrenom">
+                </div>
+                
+                <!-- À ajouter avant le bouton submit dans le formulaire -->
+
+<div class="form-group">
+    <label for="cardStyle">Style de carte</label>
+    <select id="cardStyle" required>
+        <option value="default">Style par défaut (Bleu foncé)</option>
+        <option value="light-blue">Bleu clair</option>
+        <option value="gradient-blue">Dégradé de bleus</option>
+        <option value="modern">Moderne (Épuré)</option>
+    </select>
+</div>
+
+                <button type="submit" class="submit-btn" id="downloadBtn">Générer ma Carte de Visite</button>
+            </form>
+        </div>
+        
+        <div class="preview-container">
+            <div class="card">
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="Tif.png" alt="Logo RÉSEAU EGFF" class="logo">
+                    </div>
+                    <div class="company-name">RÉSEAU EGFF</div>
+                    <h1 class="name" id="previewName">Kylian BAILLY</h1>
+                    <div class="title" id="previewTitle">STAGIAIRE</div>
+                </div>
+                
+                <div class="content">
+                    <div class="contact-section">
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-value">
+                                    <a href="mailto:k.bailly@reseauegff.fr" id="previewEmail">k.bailly@reseauegff.fr</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-value">
+                                    <a href="tel:+33600000000" id="previewPhone">+33 6 00 00 00 00</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-value">
+                                    <a href="https://www.techinfrance.com" target="_blank" id="previewWebsite">www.techinfrance.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-value" id="previewLocation">Paris, France</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-section" id="socialSection">
+                        <a href="#" class="social-icon hidden" id="previewLinkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon hidden" id="previewFacebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon hidden" id="previewTwitter">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon hidden" id="previewInstagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer">
+                    © 2025 RÉSEAU EGFF. Tous droits réservés.
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+    <!-- Modèle HTML pour le téléchargement -->
+    <div id="cardTemplate">
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Carte de Visite - RÉSEAU EGFF</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: 'Arial', sans-serif;
+                }
+                
+                body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100vh;
+                    background-color: #f0f0f0;
+                    padding: 20px;
+                }
+                
+                .card {
+                    width: 100%;
+                    max-width: 350px;
+                    aspect-ratio: 9/16;
+                    background: white;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                
+.header {
+    background: linear-gradient(135deg, #051937, #138fd7, #051937);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+                
+                .logo-container {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    background-color: white;
+                    margin-bottom: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    padding: 10px;
+                }
+                
+                .logo {
+                    max-width: 90%;
+                    max-height: 90%;
+                }
+                
+                .company-name {
+                    font-size: 14px;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    margin-bottom: 10px;
+                    opacity: 0.9;
+                }
+                
+                .name {
+                    font-size: 24px;
+                    font-weight: 700;
+                    margin-bottom: 8px;
+                }
+                
+                .title {
+                    font-size: 16px;
+                    font-weight: 400;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    padding: 5px 15px;
+                    border-radius: 20px;
+                }
+                
+                .content {
+                    flex: 1;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .contact-section {
+                    flex: 1;
+                }
+                
+                .contact-item {
+                    display: flex;
+                    align-items: center;
+                    padding: 12px 0;
+                    border-bottom: 1px solid #eee;
+                }
+                
+                .contact-item:last-child {
+                    border-bottom: none;
+                }
+                
+                .icon {
+                    width: 35px;
+                    height: 35px;
+                    background-color: #f5f5f5;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 15px;
+                    font-size: 16px;
+                    color: #004d7a;
+                }
+                
+                .contact-details {
+                    flex: 1;
+                }
+                
+                .contact-value {
+                    font-size: 15px;
+                    color: #333;
+                }
+                
+                .contact-value a {
+                    color: #004d7a;
+                    text-decoration: none;
+                }
+                
+                .social-section {
+                    margin-top: 15px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 15px;
+                    padding-top: 15px;
+                    border-top: 1px solid #eee;
+                }
+                
+                .social-icon {
+                    width: 40px;
+                    height: 40px;
+                    background-color: #004d7a;
+                    color: white;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 16px;
+                    text-decoration: none;
+                }
+                
+                .footer {
+                    background-color: #f9f9f9;
+                    padding: 12px;
+                    text-align: center;
+                    font-size: 12px;
+                    color: #777;
+                    border-top: 1px solid #eee;
+                }
+                
+                .hidden {
+                    display: none;
+                }
+                        
+/* Styles de cartes alternatifs */
+.card.light-blue .header {
+    background: linear-gradient(135deg, #5ba4e5, #8ac4ff);
+}
+
+.card.light-blue .icon {
+    color: #5ba4e5;
+}
+
+.card.light-blue .social-icon {
+    background-color: #5ba4e5;
+}
+
+.card.light-blue .contact-value a {
+    color: #5ba4e5;
+}
+
+.card.gradient-blue .header {
+    background: linear-gradient(135deg, #034f84, #92c4e9, #50b7c1);
+    animation: gradient 10s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.card.gradient-blue .icon {
+    background: #e3f2fd;
+    color: #034f84;
+}
+
+.card.gradient-blue .social-icon {
+    background: linear-gradient(135deg, #034f84, #50b7c1);
+}
+
+.card.modern .header {
+    background: #abd8ff;
+    color: #085aac;
+    border-bottom: 3px solid #085aac;
+}
+
+.card.modern .company-name {
+    color: #085aac;
+}
+
+.card.modern .title {
+    background-color: #085aac;
+    color: white;
+}
+
+.card.modern .logo-container {
+    box-shadow: none;
+    border: 2px solid #1e90ff;
+}
+
+.card.modern .icon {
+    background-color: white;
+    border: 1px solid #1e90ff;
+    color: #085aac;
+}
+
+.card.modern .social-icon {
+    background-color: white;
+    color: #1e90ff;
+    border: 1px solid #085aac;
+}
+            </style>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        </head>
+        <body>
+            <div class="card">
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="Tif.png" alt="Logo RÉSEAU EGFF" class="logo">
+                    </div>
+                    <div class="company-name">RÉSEAU EGFF</div>
+                    <h1 class="name">NAME_PLACEHOLDER</h1>
+                    <div class="title">TITLE_PLACEHOLDER</div>
+                </div>
+                
+                <div class="content">
+                    <div class="contact-section">
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-value">
+                                    <a href="mailto:EMAIL_PLACEHOLDER">EMAIL_PLACEHOLDER</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-value">
+                                    <a href="tel:PHONE_HREF_PLACEHOLDER">PHONE_PLACEHOLDER</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-value">
+                                    <a href="WEBSITE_HREF_PLACEHOLDER" target="_blank">WEBSITE_PLACEHOLDER</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-value">LOCATION_PLACEHOLDER</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-section" id="socialSectionTemplate">
+                        <a href="LINKEDIN_PLACEHOLDER" class="social-icon LINKEDIN_HIDDEN_CLASS">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="FACEBOOK_PLACEHOLDER" class="social-icon FACEBOOK_HIDDEN_CLASS">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="TWITTER_PLACEHOLDER" class="social-icon TWITTER_HIDDEN_CLASS">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="INSTAGRAM_PLACEHOLDER" class="social-icon INSTAGRAM_HIDDEN_CLASS">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer">
+                    © 2025 RÉSEAU EGFF. Tous droits réservés.
+                </div>
+            </div>
+        </body>
+        </html>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

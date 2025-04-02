@@ -1,0 +1,349 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media (min-width: 992px) {
+    .app-container {
+        flex-direction: row;
+    }
+}
+
+.form-container {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.preview-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+}
+
+h1 {
+    color: w;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #004d7a;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #051937, #0a76b5);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Styles de la carte de visite */
+.card {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 9/16;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.header {
+background: linear-gradient(135deg, #051937, #bae6ff, #00a2c7);
+background-size: 200% 200%;
+animation: gradient 10s ease infinite;
+color: white;
+padding: 25px 15px;
+text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+@keyframes gradient {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+.logo-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.logo {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.company-name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 400;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section {
+    flex: 1;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    font-size: 16px;
+    color: #004d7a;
+}
+
+.contact-details {
+    flex: 1;
+}
+
+.contact-value {
+    font-size: 15px;
+    color: #333;
+}
+
+.contact-value a {
+    color: #004d7a;
+    text-decoration: none;
+}
+
+.social-section {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #004d7a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.footer {
+    background-color: #f9f9f9;
+    padding: 12px;
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    border-top: 1px solid #eee;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action-btn {
+    background-color: #004d7a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #051937;
+}
+
+/* Nouvelle classe pour cacher les éléments */
+.hidden {
+    display: none;
+}
+
+/* Style pour le modèle de carte exportable */
+#cardTemplate {
+    display: none;
+}
+
+/* Styles de cartes alternatifs */
+.card.light-blue .header {
+background: linear-gradient(135deg, #5ba4e5, #8ac4ff);
+}
+
+.card.light-blue .icon {
+color: #5ba4e5;
+}
+
+.card.light-blue .social-icon {
+background-color: #5ba4e5;
+}
+
+.card.light-blue .contact-value a {
+color: #5ba4e5;
+}
+
+.card.gradient-blue .header {
+background: linear-gradient(135deg, #034f84, #92c4e9, #50b7c1);
+animation: gradient 10s ease infinite;
+background-size: 200% 200%;
+}
+
+@keyframes gradient {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+.card.gradient-blue .icon {
+background: #e3f2fd;
+color: #034f84;
+}
+
+.card.gradient-blue .social-icon {
+background: linear-gradient(135deg, #034f84, #50b7c1);
+}
+
+.card.modern .header {
+background: #8ac9ff;
+color: #085aac;
+border-bottom: 3px solid #085aac;
+}
+
+.card.modern .company-name {
+color: #085aac;
+}
+
+.card.modern .title {
+background-color: #085aac;
+color: white;
+}
+
+.card.modern .logo-container {
+box-shadow: none;
+border: 2px solid #1e90ff;
+}
+
+.card.modern .icon {
+background-color: white;
+border: 1px solid #1e90ff;
+color: #085aac;
+}
+
+.card.modern .social-icon {
+background-color: rgb(255, 255, 255);
+color: #1e90ff;
+border: 1px solid #085aac;
+}

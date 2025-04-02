@@ -1,0 +1,33 @@
+{
+  "name": "business-card-generator",
+  "version": "1.0.0",
+  "description": "A web application for generating customizable business cards.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "keywords": [
+    "business card",
+    "generator",
+    "react"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.27.1"
+  },
+  "homepage": "https://yourusername.github.io/business-card-generator/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/business-card-generator.git"
+  }
+}
